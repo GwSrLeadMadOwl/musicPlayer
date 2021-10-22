@@ -13,7 +13,7 @@ const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
 
 // Song titles
-import { myPlaylist } from "./PLAYLIST.js";
+// import myPlaylist from "./PLAYLIST.js";
 const songs = [
 	{
 		title: "We Are",
@@ -222,7 +222,7 @@ function DurTime(e) {
 	// change duration DOM
 	durTime.innerHTML = min_d + ':' + sec_d;
 
-};
+}
 
 // Event listeners
 playBtn.addEventListener('click', () => {
