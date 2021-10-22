@@ -13,7 +13,7 @@ const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
 
 // Song titles
-// import { myPlaylist } from "./PLAYLIST.JS";
+import { myPlaylist } from "./PLAYLIST.js";
 const songs = [
 	{
 		title: "We Are",
@@ -59,7 +59,32 @@ const songs = [
 		title: "Intro",
 		artist: "The XX",
 		src: "src/my-playlist/The xx - Intro.mp3"
-	}
+	},
+	{
+		title: "Stand!",
+		artist: "Junior Prom",
+		src: "src/my-playlist/Junior Prom - Stand!.mp3"
+	},
+	{
+		title: "Mirrors Edge 2 (Nightparis Remix)",
+		artist: "Nightparis",
+		src: "src/my-playlist/Mirrors Edge 2 (Nightparis Remix).mp3"
+	},
+	{
+		title: "With Every Heartbeat",
+		artist: "Robyn feat. Kleerup",
+		src: "src/my-playlist/Robyn featuring Kleerup - With Every Heartbeat.mp3"
+	},
+	{
+		title: "Shine a Light (Flight Facilities remix)",
+		artist: "The C90's",
+		src: "src/my-playlist/The C90's - Shine a Light (Flight Facilities remix).mp3"
+	},
+	{
+		title: "Habits (Stay High)",
+		artist: "Tove Lo",
+		src: "src/my-playlist/Tove Lo - Habits (Stay High) - Hippie Sabotage Remix.mp3"
+	},
 ];
 
 // Keep track of song
