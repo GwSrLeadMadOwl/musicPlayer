@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 * {
+  margin:0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
   background-image: linear-gradient(
     0deg,
-    rgb(247, 247, 247) 23.8%,
-    rgb(221, 233, 252) 92%
+    #131313 23.8%,
+    #0e0e0e 92%
   );
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,9 +23,9 @@ body {
 }
 
 .music-container {
-  background-color: #fff;
+  background-color: rgb(73, 73, 73);
   border-radius: 15px;
-  box-shadow: 0 20px 20px 0 rgba(169, 195, 252, 0.3);
+  /* box-shadow: 0 20px 20px 0 #a9c3fc4d; */
   display: flex;
   padding: 20px 30px;
   position: relative;
@@ -30,6 +33,25 @@ body {
   z-index: 10;
 }
 
+.visualizer-container {
+  position: absolute;
+
+  bottom: 92px;
+  /* top: 100px; */
+  right: 0;
+  left: 0;
+
+  text-align: center;
+}
+
+.visualizer-container__bar {
+
+  display: inline-block;
+  background: #a7cbf0;
+  margin: 0 1px;
+  width: 6px;
+
+}
 .img-container {
   position: relative;
   width: 110px;
@@ -53,9 +75,9 @@ body {
 }
 
 .action-btn {
-  background-color: #fff;
+  background-color: rgb(73, 73, 73);
   border: 0;
-  color: #dbdddf;
+  color: #a7cbf0;
   font-size: 20px;
   cursor: pointer;
   padding: 10px;
@@ -63,39 +85,30 @@ body {
 }
 
 .action-btn.action-btn-big {
-  color: #c2c7d0;
+  color: #a7cbf0;
   font-size: 30px;
 }
 
 .action-btn:focus {
+  /* color: #a7cbf0; */
   outline: 0;
 }
 
 .music-info {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 15px 15px 0 0;
+  /* background-color: #ffffff80; */
+  /* border-radius: 0 0 15px 15px; */
+  color: #a7cbf0;
   position: absolute;
   top: 0;
   left: 20px;
   width: calc(100% - 40px);
-  padding: 10px 10px 10px 150px;
-  opacity: 0;
-  transform: translateY(0%);
-  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  padding: 5px 15px 20px 15px;
+  transform: translateY(115%);
   z-index: 0;
 }
 
-.music-container.play .music-info {
-  opacity: 1;
-  transform: translateY(-100%);
-}
-
-.music-info h4, .music-info h6 {
-  margin: 0;
-}
-
 .progress-container {
-  background: #fff;
+  background: #a7cbf0;
   border-radius: 5px;
   cursor: pointer;
   margin: 10px 0;
@@ -104,7 +117,7 @@ body {
 }
 
 .progress {
-  background-color: #8dbefe;
+  background-color: #2f89e4;
   border-radius: 5px;
   height: 100%;
   width: 0%;
