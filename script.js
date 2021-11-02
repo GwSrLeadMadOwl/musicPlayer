@@ -101,8 +101,6 @@ function loadSong(song, art) {
 	cover.src = `./images/${song}.jpg`;
 }
 
-
-
 // Play song
 function playSong() {
 	musicContainer.classList.add('play');
@@ -191,14 +189,10 @@ function DurTime(e) {
 	}
 
 	get_sec(currentTime, sec);
-
-
-
 	// define minutes duration
 	let min_d = (isNaN(duration) === true) ? '0' :
 		Math.floor(duration / 60);
 	min_d = min_d < 10 ? '0' + min_d : min_d;
-
 
 	function get_sec_d(x) {
 		if (Math.floor(x) >= 60) {
@@ -217,44 +211,13 @@ function DurTime(e) {
 	}
 
 	// define seconds duration
-
 	get_sec_d(duration);
 
-	// change duration DOM
-	// durTime.innerHTML = min_d + ':' + sec_d;
-	// change currentTime DOM
+	// change duration DOM & currentTime DOM
 	currTime.innerHTML = `${min} : ${sec} / ${min_d} : ${sec_d}`;
 }
 
-// Event listeners
-playBtn.addEventListener('click', () => {
-	const isPlaying = musicContainer.classList.contains('play');
-
-	if (isPlaying) {
-		pauseSong();
-	} else {
-		playSong();
-	}
-});
-
-// Change song
-prevBtn.addEventListener('click', prevSong);
-nextBtn.addEventListener('click', nextSong);
-
-// Time/song update
-audio.addEventListener('timeupdate', updateProgress);
-
-// Click on progress bar
-progressContainer.addEventListener('click', setProgress);
-
-// Song ends
-audio.addEventListener('ended', nextSong);
-
-// Time of song
-audio.addEventListener('timeupdate', DurTime);
-
-
-function visualizer() {
+function visualizeAudio() {
 
 	// The number of bars that should be displayed
 	const NBR_OF_BARS = 50;
@@ -278,7 +241,7 @@ function visualizer() {
 	// Print the analyze frequencies
 	const frequencyData = new Uint8Array(analayzer.frequencyBinCount);
 	analayzer.getByteFrequencyData(frequencyData);
-	console.log("frequencyData", frequencyData);
+	// console.log("frequencyData", frequencyData);
 
 	// Get the visualizer container
 	const visualizerContainer = document.querySelector(".visualizer-container");
@@ -315,7 +278,7 @@ function visualizer() {
 
 			// If fd is undefined, default to 0, then make sure fd is at least 4
 			// This will make make a quiet frequency at least 4px high for visual effects
-			const barHeight = Math.max(2, fd || 0);
+			const barHeight = Math.max(4, fd || 0);
 			bar.style.height = barHeight + "px";
 
 		}
@@ -325,7 +288,33 @@ function visualizer() {
 
 	}
 	renderFrame();
-	audio.volume = 1;
-};
+	// audio.volume = 1;
+}
 
-visualizer();
+// Event listeners
+playBtn.addEventListener('click', () => {
+	const isPlaying = musicContainer.classList.contains('play');
+
+	if (isPlaying) {
+		pauseSong();
+	} else {
+		playSong();
+		visualizeAudio();
+	}
+});
+
+// Change song
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
+
+// Time/song update
+audio.addEventListener('timeupdate', updateProgress);
+
+// Click on progress bar
+progressContainer.addEventListener('click', setProgress);
+
+// Song ends
+audio.addEventListener('ended', nextSong);
+
+// Time of song
+audio.addEventListener('timeupdate', DurTime);
